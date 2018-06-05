@@ -1,17 +1,17 @@
 #!/bin/bash
-#PBS -P gh9
-#PBS -q normal
-#PBS -l mem=3072gb,walltime=40:00:00,ncpus=512
-#PBS -N hre4
+#PBS -P gi0
+#PBS -q expressbw
+#PBS -l mem=28672gb,walltime=00:20:00,ncpus=3136
+#PBS -N 2km
 
 #module load intel-fc
 #module load netcdf
 #module load openmpi
 
-cd /short/m68/oxr581/hre4/
+cd /short/m68/oxr581/hre2/
 
-#make clean && make -f makefile -j 6
+#make clean && make -f makefile -j 512
 
-mpiexec oceanM ROMS/External/ocean_waom4.in > ocean.log
+mpiexec oceanM ROMS/External/ocean_waom2.in > ocean.log
 #for interactive mode from command line run
 #qsub -Pgh8 -qexpress -lwalltime=02:00:00,ncpus=1,mem=16gb -I
